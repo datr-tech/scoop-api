@@ -1,0 +1,1 @@
+export { getSpec } from './getSpec';
