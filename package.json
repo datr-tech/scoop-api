@@ -13,7 +13,7 @@
     "analysis:json": "npm run analysis -- --format json",
     "clean": "npx rimraf coverage/* dist/*",
     "lint": "npx eslint --config ./eslint.config.mjs --fix",
-    "format:base": "npx prettier --config ./.prettierrc './src/**/*.ts'",
+    "format:base": "npx prettier --config ./.prettierrc './src/**/*.ts' './test/**/*.ts'",
     "format:check": "npm run format:base -- --check",
     "format:write": "npm run format:base -- --write",
     "format": "npm run format:write",
@@ -44,9 +44,11 @@
     "fta-cli": "^2.0.0",
     "husky": "^9.1.6",
     "jest": "^29.7.0",
+    "nock": "^13.5.5",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
+    "supertest": "^7.0.0",
     "ts-jest": "^29.2.5",
     "ts-loader": "^9.5.1",
     "tsx": "^4.19.1",
@@ -58,6 +60,7 @@
   "dependencies": {
     "@types/express": "^5.0.0",
     "@types/node": "^22.5.5",
+    "@types/supertest": "^6.0.2",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "winston": "^3.14.2"

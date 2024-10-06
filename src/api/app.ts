@@ -1,15 +1,9 @@
 import express from 'express';
-import { catcher, spec } from '@app/api/routes';
-import { logger } from '@app/utils/logger';
+import { catcherRouter, specRouter } from '@app/api/routes';
 
 const app = express();
 
-app.use('/api/v1/catcher', catcher);
-app.use('/api/v1/spec', spec);
-
-app.get('/', (req, res) => {
-  logger.info('root call');
-  res.send('hello world');
-});
+app.use('/api/v1/catcher', catcherRouter);
+app.use('/api/v1/spec', specRouter);
 
 export { app };
