@@ -1,13 +1,13 @@
 import express, { Request, Response } from 'express';
-import { getPage } from '@app/api/controllers/catcher';
+import { runScript } from '@app/api/controllers/scoop';
 
 let mockedExpress: jest.Mocked<typeof express>;
 let mockedResponseJson: jest.Mock;
 
 describe('api', () => {
   describe('controllers', () => {
-    describe('catcherRouter', () => {
-      describe('getPage', () => {
+    describe('scoop', () => {
+      describe('runScript', () => {
         beforeAll(() => {
           jest.mock('express');
           mockedExpress = jest.mocked(express);
@@ -17,12 +17,19 @@ describe('api', () => {
         });
         test('should call the mocked response.json function with the expected param', async () => {
           // Arrange
-          const callParamExpected = { message: 'TEMP_MESSAGE_GET_PAGE' };
-          const request: Request = undefined;
+          const script = 'TEST_SCRIPT';
+          const url = 'TEST_URL';
+          const callParamExpected = { message: 'TEMP_MESSAGE_RUN_SCRIPT', script, url };
+          const request = {
+            params: {
+              url,
+              script,
+            },
+          } as unknown as Request;
           const response: Response = mockedExpress.response;
 
           // Act
-          await getPage(request, response);
+          await runScript(request, response);
 
           // Assert
           expect(mockedResponseJson).toHaveBeenCalledTimes(1);
