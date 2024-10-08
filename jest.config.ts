@@ -11,6 +11,7 @@ export default {
   },
   moduleNameMapper: {
     '@app/(.*)': '<rootDir>/src/$1',
+    '@appTest/(.*)': '<rootDir>/test/$1',
   },
   preset: 'ts-jest',
   setupFilesAfterEnv: ['<rootDir>/.jest/setupPaths.ts', '<rootDir>/.jest/setupFunctions.ts'],
