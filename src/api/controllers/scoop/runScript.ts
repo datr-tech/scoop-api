@@ -1,12 +1,14 @@
-import { Request, Response } from 'express';
+import { chromium } from 'playwright-extra';
+import stealth from 'puppeteer-extra-plugin-stealth';
 
-export const runScript = async (req: Request, res: Response) => {
-  const url = req.params.url;
-  const script = req.params.script;
+export const runScript = async ({ url, script }) => {
+  chromium.use(stealth());
 
-  res.json({
-    message: 'TEMP_MESSAGE_RUN_SCRIPT',
-    script,
-    url,
-  });
+  const browser = await chromium.launch();
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  await page.goto(url);
+
+  const fn = eval(script);
+  return await fn(page);
 };

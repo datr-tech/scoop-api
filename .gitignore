@@ -4,3 +4,4 @@ analysis
 coverage
 dist
 node_modules
+test/unit/api/routes

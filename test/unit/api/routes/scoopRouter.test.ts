@@ -12,6 +12,7 @@ describe('api', () => {
         return request(app)
           .get(scoopUrlPath)
           .then((response) => {
+            // eslint-ignore-next-line no-unsafe-optional-chaining
             const { message } = response?.body;
             expect(message).toEqual(messageExpected);
           });
@@ -24,6 +25,7 @@ describe('api', () => {
         return request(app)
           .get(scoopUrlPath)
           .then((response) => {
+            // eslint-ignore-next-line no-unsafe-optional-chaining
             const { message } = response?.body;
             expect(message).toEqual(messageExpected);
           });
