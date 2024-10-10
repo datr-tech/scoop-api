@@ -1,0 +1,1 @@
+export const CONST_RESPONSE_STATUSES_ERROR = 400;
