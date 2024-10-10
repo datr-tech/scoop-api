@@ -1,5 +1,5 @@
 import { param } from 'express-validator';
-import { PARAM_NAME_SCRIPT } from '@app/config/consts';
-import { IParamValidator } from '@app/interfaces/api/IParamValidator';
+import { CONST_PARAM_NAMES_SCRIPT } from '@app/config/consts';
+import { IParamValidator } from '@app/interfaces/api';
 
-export const scriptParamValidator: IParamValidator = param(PARAM_NAME_SCRIPT).notEmpty().isString().trim();
+export const scriptParamValidator: IParamValidator = param(CONST_PARAM_NAMES_SCRIPT).notEmpty().isString().trim();

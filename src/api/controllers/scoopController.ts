@@ -1,7 +1,8 @@
 import { chromium } from 'playwright-extra';
 import stealth from 'puppeteer-extra-plugin-stealth';
+import { IControllerScoop } from '@app/interfaces/api';
 
-export const runScript = async ({ url, script }) => {
+export const scoopController: IControllerScoop = async ({ url, script }) => {
   chromium.use(stealth());
 
   const browser = await chromium.launch();
@@ -10,5 +11,10 @@ export const runScript = async ({ url, script }) => {
   await page.goto(url);
 
   const fn = eval(script);
-  return await fn(page);
+  const result = await fn(page);
+  await browser.close();
+
+  return {
+    result,
+  };
 };

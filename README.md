@@ -1,4 +1,4 @@
-# scoop-api
+# scoopController-api
 
 > A Typescript web-scraping API
 

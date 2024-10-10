@@ -25,7 +25,7 @@ export default {
   },
   target: 'node',
   output: {
-    filename: 'scoop-api.cjs',
+    filename: 'scoopController-api.cjs',
     path: path.resolve(__dirname, 'dist'),
   },
 };

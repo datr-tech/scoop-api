@@ -1,2 +1,2 @@
-export const PARAM_NAME_SCRIPT = 'script';
-export const PARAM_NAME_URL = 'url';
+export const CONST_PARAM_NAMES_SCRIPT = 'script';
+export const CONST_PARAM_NAMES_URL = 'url';
